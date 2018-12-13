@@ -1,7 +1,7 @@
 
 [更多方法使用参考demo](https://github.com/weiweilidd01/DDPhotoBrowser)
 
-#### 1.使用方式
+#### 1.使用方式, pod DDKit
 
 ```
         var photos = [DDPhoto]()
