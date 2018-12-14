@@ -11,7 +11,7 @@ import UIKit
 
 let kPhotoViewPadding: CGFloat = 10
 
-public class DDPhotoBrowerController: UIViewController {
+class DDPhotoBrowerController: UIViewController {
 
     /// 是否需要显示状态栏
     public var isStatusBarShow: Bool = false {
@@ -60,23 +60,23 @@ public class DDPhotoBrowerController: UIViewController {
         photo?.isFirstPhoto = true
     }
     
-    required init?(coder aDecoder: NSCoder) {
+    required public init?(coder aDecoder: NSCoder) {
         fatalError("init(coder:) has not been implemented")
     }
     
-    override public func viewDidLoad() {
+    override func viewDidLoad() {
         super.viewDidLoad()
         // Do any additional setup after loading the view.
         setupUI()
         addGestureRecognizer()
     }
     
-    override public func viewDidLayoutSubviews() {
+    override func viewDidLayoutSubviews() {
         super.viewDidLayoutSubviews()
         layoutSubviews()
     }
     
-    public override func viewWillAppear(_ animated: Bool) {
+    override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
         //代理回调
         deleagte?.photoBrowser(controller: self, didChanged: currentIndex)
@@ -91,11 +91,11 @@ public class DDPhotoBrowerController: UIViewController {
 }
 
 extension DDPhotoBrowerController: UICollectionViewDelegate, UICollectionViewDataSource {
-    public func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
+    func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
         return photos?.count ?? 0
     }
     
-    public func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
+    func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         //图片cell
         let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "DDPhotoBrowerCell", for: indexPath) as! DDPhotoBrowerCell
         let photo = photos?[indexPath.row]
@@ -107,23 +107,19 @@ extension DDPhotoBrowerController: UICollectionViewDelegate, UICollectionViewDat
         return cell
     }
     
-    public func collectionView(_ collectionView: UICollectionView, willDisplay cell: UICollectionViewCell, forItemAt indexPath: IndexPath) {
-       
-    }
-    
-    public func collectionView(_ collectionView: UICollectionView, didEndDisplaying cell: UICollectionViewCell, forItemAt indexPath: IndexPath) {
+    func collectionView(_ collectionView: UICollectionView, didEndDisplaying cell: UICollectionViewCell, forItemAt indexPath: IndexPath) {
         let photoView = (cell as! DDPhotoBrowerCell).photoView
         photoView.scrollView.setZoomScale(1, animated: false)
     }
     
-    public func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
+    func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
         collectionView.deselectItem(at: indexPath, animated: true)
     }
 }
 
 // MARK: - UIScrollViewDelegate
 extension DDPhotoBrowerController: UIScrollViewDelegate {
-    public func scrollViewWillBeginDragging(_ scrollView: UIScrollView) {
+    func scrollViewWillBeginDragging(_ scrollView: UIScrollView) {
         isDrag = true
     
         //拖拽的时候停止播放gif
@@ -132,12 +128,11 @@ extension DDPhotoBrowerController: UIScrollViewDelegate {
         }
         
         if photo.isGif == true {
-            let currentCell = photoCollectionView?.cellForItem(at: IndexPath(item: currentIndex, section: 0)) as? DDPhotoBrowerCell
-            currentCell?.photoView.imageView.stopAnimating()
+           currentPhotoView().imageView.stopAnimating()
         }
     }
     
-    public func scrollViewDidScroll(_ scrollView: UIScrollView) {
+    func scrollViewDidScroll(_ scrollView: UIScrollView) {
         currentIndex = Int(round(scrollView.contentOffset.x/scrollView.bounds.width))
         if let count = photos?.count {
             if currentIndex >= count {
@@ -149,7 +144,7 @@ extension DDPhotoBrowerController: UIScrollViewDelegate {
         }
     }
     
-    public func scrollViewDidEndDecelerating(_ scrollView: UIScrollView) {
+    func scrollViewDidEndDecelerating(_ scrollView: UIScrollView) {
         isDrag = false
         let offsetX = scrollView.contentOffset.x
         
@@ -173,8 +168,7 @@ extension DDPhotoBrowerController: UIScrollViewDelegate {
         }
         
         if photo.isGif == true {
-            let currentCell = photoCollectionView?.cellForItem(at: IndexPath(item: currentIndex, section: 0)) as? DDPhotoBrowerCell
-            currentCell?.photoView.imageView.startAnimating()
+            currentPhotoView().imageView.startAnimating()
         }
     }
 }
@@ -200,7 +194,6 @@ private extension DDPhotoBrowerController {
         let cell =  photoCollectionView?.cellForItem(at: indexPath) as! DDPhotoBrowerCell
         return cell.photoView
     }
-    
     
     /// 设置UI
     func setupUI() {
@@ -306,9 +299,7 @@ private extension DDPhotoBrowerController {
     }
     
     func showDismissAnimation() {
-        let indexPath = IndexPath(row: currentIndex, section: 0)
-        let cell =  photoCollectionView?.cellForItem(at: indexPath) as! DDPhotoBrowerCell
-        let photoView = cell.photoView
+        let photoView = currentPhotoView()
         let photo = photos?[currentIndex]
         var sourceRect = photo?.sourceFrame
         
@@ -456,10 +447,7 @@ private extension DDPhotoBrowerController {
 extension DDPhotoBrowerController {
 
     @objc func handleDoubleTap(_ tap: UITapGestureRecognizer) {
-        print("handleDoubleTap")
-        let indexPath = IndexPath(row: currentIndex, section: 0)
-        let cell = photoCollectionView?.cellForItem(at: indexPath) as! DDPhotoBrowerCell
-        let photoView = cell.photoView
+        let photoView = currentPhotoView()
         let photo = photos?[currentIndex]
         if  photo?.isFinished == false {
             return

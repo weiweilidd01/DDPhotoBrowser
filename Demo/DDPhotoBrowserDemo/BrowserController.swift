@@ -18,6 +18,8 @@ class BrowserController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         addTap()
+        
+        print("1111111")
     }
     
     deinit {
@@ -127,22 +129,23 @@ extension BrowserController : DDPhotoBrowerDelegate {
     /// 索引值改变
     ///
     /// - Parameter index: 索引
-    func photoBrowser(controller: DDPhotoBrowerController?, didChanged index: Int?) {
-        print("didChanged")
+    func photoBrowser(controller: UIViewController?, didChanged index: Int?) {
+        print(controller)
     }
     
     /// 单击事件，即将消失
     ///
     /// - Parameter index: 索引
-    func photoBrowser(controller: DDPhotoBrowerController?, willDismiss index: Int?) {
-        print("willDismiss")
+    func photoBrowser(controller: UIViewController?, willDismiss index: Int?) {
+        print(controller)
 
     }
     
     /// 长按事件事件
     ///
     /// - Parameter index: 索引
-    func photoBrowser(controller: DDPhotoBrowerController?, longPress index: Int?) {
-        print("longPress")
+    func photoBrowser(controller: UIViewController?, longPress index: Int?) {
+        print(controller)
+
     }
 }

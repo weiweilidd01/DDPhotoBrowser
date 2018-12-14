@@ -12,23 +12,23 @@ public protocol DDPhotoBrowerDelegate: NSObjectProtocol {
     /// 索引值改变
     ///
     /// - Parameter index: 索引
-    func photoBrowser(controller: DDPhotoBrowerController?, didChanged index: Int?)
+    func photoBrowser(controller: UIViewController?, didChanged index: Int?)
 
     /// 单击事件，即将消失
     ///
     /// - Parameter index: 索引
-    func photoBrowser(controller: DDPhotoBrowerController?, willDismiss index: Int?)
+    func photoBrowser(controller: UIViewController?, willDismiss index: Int?)
 
     /// 长按事件事件
     ///
     /// - Parameter index: 索引
-    func photoBrowser(controller: DDPhotoBrowerController?, longPress index: Int?)
+    func photoBrowser(controller: UIViewController?, longPress index: Int?)
 }
 
 extension DDPhotoBrowerDelegate {
-    func photoBrowser(controller: DDPhotoBrowerController?, didChanged index: Int?) {}
-    func photoBrowser(controller: DDPhotoBrowerController?, willDismiss index: Int?) {}
-    func photoBrowser(controller: DDPhotoBrowerController?, longPress index: Int?) {}
+    func photoBrowser(controller: UIViewController?, didChanged index: Int?) {}
+    func photoBrowser(controller: UIViewController?, willDismiss index: Int?) {}
+    func photoBrowser(controller: UIViewController?, longPress index: Int?) {}
 }
 
 public class DDPhotoBrower: NSObject {
