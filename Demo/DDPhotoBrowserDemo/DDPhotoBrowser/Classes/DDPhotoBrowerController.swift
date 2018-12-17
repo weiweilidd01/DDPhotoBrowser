@@ -20,7 +20,7 @@ class DDPhotoBrowerController: UIViewController {
         }
     }
     ///滑动消失时是否隐藏原来的视图
-    public var isHideSourceView: Bool = true
+    public var isHideSourceView: Bool = false
     ///横屏时是否充满屏幕宽度，默认YES，为NO时图片自动填充屏幕
     public var isFullWidthForLandSpace: Bool = true
 

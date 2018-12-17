@@ -41,7 +41,9 @@ class DDPhotoBrowerCell: UICollectionViewCell {
         } else {
             let imgSize = photo.sourceImageView?.image?.browserImageFrame() ?? CGSize.zero
             photoView.imageView.image = (photo.placeholderImage != nil) ? photo.placeholderImage : photo.sourceImageView?.image?.browserScaleToSize(size: imgSize)
-            photoView.adjustFrame()
+//            photoView.adjustFrame()
+//            photoView.imageView.image = (photo.placeholderImage != nil) ? photo.placeholderImage : photo.sourceImageView?.image
+            photoView.adjustFrame(photo: photo)
         }
         
         let endRect = photoView.imageView.frame
@@ -50,7 +52,6 @@ class DDPhotoBrowerCell: UICollectionViewCell {
         
         if sourceRect?.equalTo(CGRect.zero) == true || sourceRect == nil {
             sourceRect = photo.sourceImageView?.superview?.convert(photo.sourceImageView?.frame ?? CGRect.zero, to: (browserViewController() as? DDPhotoBrowerController)?.contentView)
-
         }
         
         photoView.imageView.frame = sourceRect ?? CGRect.zero

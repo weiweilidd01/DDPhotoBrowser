@@ -54,10 +54,10 @@ class BrowserController: UIViewController {
         let tap4 = UITapGestureRecognizer(target: self, action: #selector(tagDGesture))
         imageViewD.addGestureRecognizer(tap4)
         
-        let url1 = URL(string: "http://dd01-test-d0.oss-cn-shenzhen.aliyuncs.com/20181206/4e363dcddb474efa4d1d2bc209acf5fe.jpeg")
+        let url1 = URL(string: "http://dd01-test-d0.oss-cn-shenzhen.aliyuncs.com/20181207/0ed36a0dea9c7feaf2e4886c393adfb7.jpeg")
         imageViewA.kf.setImage(with: url1)
         
-        let url2 = URL(string: "http://dd01-test-d0.oss-cn-shenzhen.aliyuncs.com/20181207/0ed36a0dea9c7feaf2e4886c393adfb7.jpeg")
+        let url2 = URL(string: "https://timgsa.baidu.com/timg?image&quality=80&size=b9999_10000&sec=1533056728983&di=0377ea3d0ef5acdefe8863c1657a67f4&imgtype=0&src=http%3A%2F%2Fimg.zcool.cn%2Fcommunity%2F01e90159a5094ba801211d25bec351.jpg")
         imageViewB.kf.setImage(with: url2)
         
         let url3 = URL(string: "http://img1.mydrivers.com/img/20171008/s_da7893ed38074cbc994e0ff3d85adeb5.jpg")
@@ -93,11 +93,11 @@ class BrowserController: UIViewController {
         var photos = [DDPhoto]()
         
         let photo1 = DDPhoto()
-        photo1.url = URL(string: "http://dd01-test-d0.oss-cn-shenzhen.aliyuncs.com/20181206/4e363dcddb474efa4d1d2bc209acf5fe.jpeg")
+        photo1.url = URL(string: "http://dd01-test-d0.oss-cn-shenzhen.aliyuncs.com/20181207/0ed36a0dea9c7feaf2e4886c393adfb7.jpeg")
         photo1.sourceImageView = imageViewA
         
         let photo2 = DDPhoto()
-        photo2.url = URL(string: "http://dd01-test-d0.oss-cn-shenzhen.aliyuncs.com/20181207/0ed36a0dea9c7feaf2e4886c393adfb7.jpeg")
+        photo2.url = URL(string: "https://timgsa.baidu.com/timg?image&quality=80&size=b9999_10000&sec=1533056728983&di=0377ea3d0ef5acdefe8863c1657a67f4&imgtype=0&src=http%3A%2F%2Fimg.zcool.cn%2Fcommunity%2F01e90159a5094ba801211d25bec351.jpg")
         photo2.sourceImageView = imageViewB
         
         let photo3 = DDPhoto()
@@ -130,14 +130,14 @@ extension BrowserController : DDPhotoBrowerDelegate {
     ///
     /// - Parameter index: 索引
     func photoBrowser(controller: UIViewController?, didChanged index: Int?) {
-        print(controller)
+//        print(controller)
     }
     
     /// 单击事件，即将消失
     ///
     /// - Parameter index: 索引
     func photoBrowser(controller: UIViewController?, willDismiss index: Int?) {
-        print(controller)
+//        print(controller)
 
     }
     
@@ -145,7 +145,7 @@ extension BrowserController : DDPhotoBrowerDelegate {
     ///
     /// - Parameter index: 索引
     func photoBrowser(controller: UIViewController?, longPress index: Int?) {
-        print(controller)
+//        print(controller)
 
     }
 }

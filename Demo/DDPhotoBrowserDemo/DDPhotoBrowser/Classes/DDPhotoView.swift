@@ -89,11 +89,11 @@ extension DDPhotoView {
         scrollView.frame = bounds
         activityView.center = UIApplication.shared.keyWindow?.center ?? CGPoint.zero
         if photo != nil {
-            adjustFrame()
+            adjustFrame(photo: photo)
         }
     }
         
-    func adjustFrame() {
+    func adjustFrame(photo: DDPhoto? = nil) {
         scrollView.setZoomScale(1, animated: false)
         
         var frame = scrollView.frame
@@ -151,6 +151,13 @@ extension DDPhotoView {
         }
         
         scrollView.contentOffset = CGPoint.zero
+//        if let photo = photo {
+//            imageView.contentMode = photo.sourceImageView?.contentMode ?? .scaleToFill
+//        } else {
+//            imageView.contentMode = .scaleToFill
+//        }
+        imageView.contentMode = .scaleToFill
+
         // frame调整完毕，重新设置缩放
         if photo?.isZooming == true {
             zoomToRect((photo?.zoomRect ?? CGRect.zero), animated: false)
@@ -180,7 +187,6 @@ extension DDPhotoView: UIScrollViewDelegate {
             callBack(scrollView.zoomScale)
         }
     }
-    
 }
 
 private extension DDPhotoView {
@@ -194,16 +200,15 @@ private extension DDPhotoView {
                 activityView.stopAnimating()
                 activityView.isHidden = true
                 imageView.image = image
-                adjustFrame()
+                adjustFrame(photo: photo)
                 return
             }
             
             // 显示原来的图片
             if imageView.image == nil {
                 imageView.image = photo.placeholderImage != nil ? (photo.placeholderImage) : (photo.sourceImageView?.image)
-
+                adjustFrame(photo: photo)
             }
-            imageView.contentMode = photo.sourceImageView?.contentMode ?? .scaleToFill
             scrollView.isScrollEnabled = false
 
             activityView.isHidden = false
@@ -232,7 +237,7 @@ private extension DDPhotoView {
                 self?.activityView.isHidden = true
                 self?.activityView.stopAnimating()
             
-                self?.adjustFrame()
+                self?.adjustFrame(photo: photo)
             }
             
         } else {

@@ -35,8 +35,11 @@ public class DDPhotoBrower: NSObject {
     
     /// 代理
     public weak var delegate: DDPhotoBrowerDelegate?
+    ///滑动消失时是否隐藏原来的视图
+    public var isHideSourceView: Bool = false
     /// 是否需要显示状态栏，默认不显示
-    public var isShowStatusBar: Bool? = false
+//    public var isShowStatusBar: Bool = false
+   
     public var photos: [DDPhoto]?
     public var currentIndex: Int?
    
@@ -59,6 +62,7 @@ extension DDPhotoBrower {
         vc.modalTransitionStyle = .coverVertical
         vc.modalPresentationStyle = .custom
         vc.deleagte = delegate
+        vc.isHideSourceView = isHideSourceView
         // 是否接管状态栏外观，即重写的 prefersStatusBarHidden 等方法是否会被调用
         vc.modalPresentationCapturesStatusBarAppearance = true
         topController?.present(vc, animated: false, completion: nil)
