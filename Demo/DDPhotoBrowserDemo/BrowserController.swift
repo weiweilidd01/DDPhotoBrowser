@@ -18,8 +18,6 @@ class BrowserController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         addTap()
-        
-        print("1111111")
     }
     
     deinit {
@@ -120,7 +118,6 @@ class BrowserController: UIViewController {
         browser.delegate = self
         browser.show()
     }
-
 }
 
 

@@ -8,7 +8,7 @@
 //
 
 import UIKit
-
+import Photos
 let kPhotoViewPadding: CGFloat = 10
 
 class DDPhotoBrowerController: UIViewController {
@@ -23,7 +23,9 @@ class DDPhotoBrowerController: UIViewController {
     public var isHideSourceView: Bool = false
     ///横屏时是否充满屏幕宽度，默认YES，为NO时图片自动填充屏幕
     public var isFullWidthForLandSpace: Bool = true
-
+    /// 长按是否自动保存图片到相册，若为true,则长按代理不在回调。若为false，返回长按代理
+    public var isLongPressAutoSaveImageToAlbum: Bool = true
+    
     /// 当前索引
     public var currentIndex: Int = 0
     
@@ -441,6 +443,78 @@ private extension DDPhotoBrowerController {
             break
         }
     }
+    
+    func libraryAuthorization() {
+        let authorStatus = PHPhotoLibrary.authorizationStatus()
+        switch authorStatus {
+        case .notDetermined:  //未确定 申请
+            PHPhotoLibrary.requestAuthorization { (status) in
+                //没有授权直接退出
+                if status != .authorized {
+                    return;
+                }
+            }
+            break
+        case .restricted: break
+        case .denied:
+            showAlertNoAuthority("请在iPhone的\"设置-隐私-照片\"选项中，允许访问您的照片")
+            return
+        case .authorized:
+            showAlertSaveImage()
+            break
+        default:
+            break
+        }
+
+    }
+
+    func showAlertSaveImage() {
+        //弹窗提示
+        let alertVC = UIAlertController(title: "保存图片到手机", message: "", preferredStyle: .alert)
+        let cancelAction = UIAlertAction(title: "取消", style: .default) { (action) in
+        }
+        let actionCommit = UIAlertAction(title: "确定", style: .default) {[weak self] (action) in
+            self?.saveImageToAlbum()
+        }
+        alertVC.addAction(cancelAction)
+        alertVC.addAction(actionCommit)
+        present(alertVC, animated: true, completion: nil)
+    }
+    
+    func saveImageToAlbum() {
+        let photo = photos?[currentIndex]
+        guard let image = photo?.image else {
+            return
+        }
+        
+        UIImageWriteToSavedPhotosAlbum(image, self, #selector(saved(image:didFinishSavingWithError:contextInfo:)), nil)
+    }
+    
+    @objc func saved(image: UIImage, didFinishSavingWithError erro: NSError?, contextInfo: AnyObject) {
+        if erro != nil {
+            print("错误")
+            return
+        }
+        print("ok")
+    }
+    /// 显示无授权信息
+    ///
+    /// - Parameter text: 标题
+    func showAlertNoAuthority(_ text: String?) {
+        //弹窗提示
+        let alertVC = UIAlertController(title: "提示", message: text, preferredStyle: .alert)
+        let cancelAction = UIAlertAction(title: "取消", style: .default) { (action) in
+        }
+        let actionCommit = UIAlertAction(title: "去设置", style: .default) { (action) in
+            //去设置
+            if let url = URL(string: UIApplicationOpenSettingsURLString) {
+                UIApplication.shared.openURL(url)
+            }
+        }
+        alertVC.addAction(cancelAction)
+        alertVC.addAction(actionCommit)
+        present(alertVC, animated: true, completion: nil)
+    }
 }
 
 // MARK: - 手势事件响应
@@ -483,8 +557,13 @@ extension DDPhotoBrowerController {
     @objc func handleLongPress(_ tap: UILongPressGestureRecognizer) {
         switch tap.state {
         case .began:
-            //代理回调
-            deleagte?.photoBrowser(controller: self, longPress: currentIndex)
+            
+            if isLongPressAutoSaveImageToAlbum == true {
+                libraryAuthorization()
+            } else {
+                //代理回调
+                deleagte?.photoBrowser(controller: self, longPress: currentIndex)
+            }
             break
         case .ended:
             break
