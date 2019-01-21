@@ -116,6 +116,7 @@ class BrowserController: UIViewController {
         
         let browser = DDPhotoBrower.photoBrowser(Photos: photos, currentIndex: index)
         browser.delegate = self
+        browser.photoPermission = "开启相册权限，方便将图片保存到相册"
         browser.show()
     }
 }

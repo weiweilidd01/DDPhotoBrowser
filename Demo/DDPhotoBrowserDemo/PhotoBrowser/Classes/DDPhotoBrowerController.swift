@@ -9,10 +9,13 @@
 
 import UIKit
 import Photos
+//import DDKit
+
 let kPhotoViewPadding: CGFloat = 10
 
 class DDPhotoBrowerController: UIViewController {
 
+    public var previousStatusBarStyle: UIStatusBarStyle = .default
     /// 是否需要显示状态栏
     public var isStatusBarShow: Bool = false {
         didSet {
@@ -25,7 +28,9 @@ class DDPhotoBrowerController: UIViewController {
     public var isFullWidthForLandSpace: Bool = true
     /// 长按是否自动保存图片到相册，若为true,则长按代理不在回调。若为false，返回长按代理
     public var isLongPressAutoSaveImageToAlbum: Bool = true
-    
+    /// 配置保存图片权限提示
+    public var photoPermission: String = "请在iPhone的\"设置-隐私-照片\"选项中，允许访问您的照片"
+
     /// 当前索引
     public var currentIndex: Int = 0
     
@@ -457,7 +462,7 @@ private extension DDPhotoBrowerController {
             break
         case .restricted: break
         case .denied:
-            showAlertNoAuthority("请在iPhone的\"设置-隐私-照片\"选项中，允许访问您的照片")
+            showAlertNoAuthority(photoPermission)
             return
         case .authorized:
             showAlertSaveImage()
@@ -502,7 +507,7 @@ private extension DDPhotoBrowerController {
     /// - Parameter text: 标题
     func showAlertNoAuthority(_ text: String?) {
         //弹窗提示
-        let alertVC = UIAlertController(title: "提示", message: text, preferredStyle: .alert)
+        let alertVC = UIAlertController(title: "温馨提示", message: text, preferredStyle: .alert)
         let cancelAction = UIAlertAction(title: "取消", style: .default) { (action) in
         }
         let actionCommit = UIAlertAction(title: "去设置", style: .default) { (action) in
@@ -514,6 +519,26 @@ private extension DDPhotoBrowerController {
         alertVC.addAction(cancelAction)
         alertVC.addAction(actionCommit)
         present(alertVC, animated: true, completion: nil)
+        
+//        guard let window = UIApplication.shared.keyWindow else {
+//            return
+//        }
+//        let info = AlertInfo(title: "温馨提示",
+//                             subTitle: nil,
+//                             needInput: nil,
+//                             cancel: "取消",
+//                             sure: "去设置",
+//                             content: text,
+//                             targetView: window)
+//        Alert.shared.show(info: info) { (tag) in
+//            if tag == 0 {
+//                return
+//            }
+//            //去设置
+//            if let url = URL(string: UIApplicationOpenSettingsURLString) {
+//                UIApplication.shared.openURL(url)
+//            }
+//        }
     }
 }
 
@@ -603,6 +628,6 @@ extension DDPhotoBrowerController {
     }
     
     override public var preferredStatusBarStyle: UIStatusBarStyle {
-        return .lightContent
+        return previousStatusBarStyle
     }
 }

@@ -8,5 +8,7 @@ target 'DDPhotoBrowserDemo' do
   use_frameworks!
 
 pod 'Kingfisher', '4.9.0'
+#pod 'DDKit/Hud'
+#pod 'DDKit/PhotoBrowser'
 
 end

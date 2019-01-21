@@ -39,6 +39,9 @@ public class DDPhotoBrower: NSObject {
     public var isHideSourceView: Bool = false
     /// 长按是否自动保存图片到相册，若为true,则长按代理不在回调。若为false，返回长按代理
     public var isLongPressAutoSaveImageToAlbum: Bool = true
+    
+    /// 配置保存图片权限提示
+    public var photoPermission: String = "请在iPhone的\"设置-隐私-照片\"选项中，允许访问您的照片"
 
     /// 是否需要显示状态栏，默认不显示
 //    public var isShowStatusBar: Bool = false
@@ -67,6 +70,8 @@ extension DDPhotoBrower {
         vc.deleagte = delegate
         vc.isHideSourceView = isHideSourceView
         vc.isLongPressAutoSaveImageToAlbum = isLongPressAutoSaveImageToAlbum
+        vc.photoPermission = photoPermission
+        vc.previousStatusBarStyle = UIApplication.shared.statusBarStyle
         // 是否接管状态栏外观，即重写的 prefersStatusBarHidden 等方法是否会被调用
         vc.modalPresentationCapturesStatusBarAppearance = true
         topController?.present(vc, animated: false, completion: nil)

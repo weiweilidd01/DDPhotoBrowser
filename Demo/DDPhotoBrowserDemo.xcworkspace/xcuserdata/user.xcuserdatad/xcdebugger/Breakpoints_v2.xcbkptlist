@@ -180,45 +180,13 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "DDPhotoBrowserDemo/DDPhotoBrowser/Classes/DDPhotoBrowerController.swift"
-            timestampString = "567054932.047313"
+            timestampString = "569735635.619925"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "344"
-            endingLineNumber = "344"
+            startingLineNumber = "348"
+            endingLineNumber = "348"
             landmarkName = "dismissAnimated(_:)"
             landmarkType = "7">
-            <Locations>
-               <Location
-                  shouldBeEnabled = "Yes"
-                  ignoreCount = "0"
-                  continueAfterRunningActions = "No"
-                  symbolName = "DDPhotoBrowserDemo.DDPhotoBrowerController.(dismissAnimated in _A94C6A4C7E2761DA4B1F7854E100AE20)(Swift.Bool) -&gt; ()"
-                  moduleName = "DDPhotoBrowserDemo"
-                  usesParentBreakpointCondition = "Yes"
-                  urlString = "file:///Users/user/DDPhotoBrowser/Demo/DDPhotoBrowserDemo/DDPhotoBrowser/Classes/DDPhotoBrowerController.swift"
-                  timestampString = "567054757.0114419"
-                  startingColumnNumber = "9223372036854775807"
-                  endingColumnNumber = "9223372036854775807"
-                  startingLineNumber = "345"
-                  endingLineNumber = "345"
-                  offsetFromSymbolStart = "76">
-               </Location>
-               <Location
-                  shouldBeEnabled = "Yes"
-                  ignoreCount = "0"
-                  continueAfterRunningActions = "No"
-                  symbolName = "closure #1 () -&gt; () in DDPhotoBrowserDemo.DDPhotoBrowerController.(dismissAnimated in _A94C6A4C7E2761DA4B1F7854E100AE20)(Swift.Bool) -&gt; ()"
-                  moduleName = "DDPhotoBrowserDemo"
-                  usesParentBreakpointCondition = "Yes"
-                  urlString = "file:///Users/user/DDPhotoBrowser/Demo/DDPhotoBrowserDemo/DDPhotoBrowser/Classes/DDPhotoBrowerController.swift"
-                  timestampString = "567054757.012899"
-                  startingColumnNumber = "9223372036854775807"
-                  endingColumnNumber = "9223372036854775807"
-                  startingLineNumber = "346"
-                  endingLineNumber = "346"
-                  offsetFromSymbolStart = "28">
-               </Location>
-            </Locations>
          </BreakpointContent>
       </BreakpointProxy>
       <BreakpointProxy
@@ -244,11 +212,11 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "DDPhotoBrowserDemo/DDPhotoBrowser/Classes/DDPhotoBrowerController.swift"
-            timestampString = "567054932.047817"
+            timestampString = "569735635.620378"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "173"
-            endingLineNumber = "173"
+            startingLineNumber = "177"
+            endingLineNumber = "177"
             landmarkName = "scrollViewDidEndDecelerating(_:)"
             landmarkType = "7">
          </BreakpointContent>
@@ -331,6 +299,22 @@
             endingLineNumber = "212"
             landmarkName = "loadImage(_:)"
             landmarkType = "7">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            shouldBeEnabled = "Yes"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "DDPhotoBrowserDemo/PhotoBrowser/Classes/DDPhotoBrowerController.swift"
+            timestampString = "569750175.2881089"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "631"
+            endingLineNumber = "631"
+            landmarkName = "preferredStatusBarStyle"
+            landmarkType = "24">
          </BreakpointContent>
       </BreakpointProxy>
    </Breakpoints>
