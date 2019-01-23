@@ -51,7 +51,20 @@ class DDPhotoBrowerController: UIViewController {
     private let flowLayout: UICollectionViewFlowLayout = UICollectionViewFlowLayout()
     //旋转之前index
     private var isDrag: Bool = false
+    private lazy var  singleTap:UITapGestureRecognizer  = {
+        let single = UITapGestureRecognizer(target: self, action: #selector(handleSingleTap(_:)))
+        return single
+    }()
     
+    private lazy var  doubleTap: UITapGestureRecognizer = {
+       let tap = UITapGestureRecognizer(target: self, action: #selector(handleDoubleTap(_:)))
+        return tap
+    }()
+    
+    private lazy var longPress: UILongPressGestureRecognizer = {
+        let long = UILongPressGestureRecognizer(target: self, action: #selector(handleLongPress(_:)))
+        return long
+    }()
     /// 拖拽手势
     private lazy var panGesture: UIPanGestureRecognizer = {
         let panGesture = UIPanGestureRecognizer(target: self, action: #selector(handlePanGesture(_:)))
@@ -117,6 +130,13 @@ extension DDPhotoBrowerController: UICollectionViewDelegate, UICollectionViewDat
     func collectionView(_ collectionView: UICollectionView, didEndDisplaying cell: UICollectionViewCell, forItemAt indexPath: IndexPath) {
         let photoView = (cell as! DDPhotoBrowerCell).photoView
         photoView.scrollView.setZoomScale(1, animated: false)
+        
+        //判断cell是否是视屏，若是则停止播放
+        if let photo = photos?[indexPath.row],
+            photo.isVideo == true,
+            photoView.videoView.isPlay() == true {
+            photoView.videoView.reset()
+        }
     }
     
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
@@ -128,7 +148,6 @@ extension DDPhotoBrowerController: UICollectionViewDelegate, UICollectionViewDat
 extension DDPhotoBrowerController: UIScrollViewDelegate {
     func scrollViewWillBeginDragging(_ scrollView: UIScrollView) {
         isDrag = true
-    
         //拖拽的时候停止播放gif
         guard let photo = currentPhoto() else {
             return
@@ -148,6 +167,13 @@ extension DDPhotoBrowerController: UIScrollViewDelegate {
             if currentIndex < 0 {
                 currentIndex = 0
             }
+        }
+        
+        removeGestureRecognizer()
+        pageControl.isHidden = true
+        if currentPhoto()?.isVideo == false {
+            addGestureRecognizer()
+            pageControl.isHidden = false
         }
     }
     
@@ -242,24 +268,34 @@ private extension DDPhotoBrowerController {
     
     /// 添加手势
     func addGestureRecognizer() {
-        /// 添加单点手势
-        let singleTap = UITapGestureRecognizer(target: self, action: #selector(handleSingleTap(_:)))
         singleTap.numberOfTapsRequired = 1
         view.addGestureRecognizer(singleTap)
         
         /// 添加双击手势
-        let doubleTap = UITapGestureRecognizer(target: self, action: #selector(handleDoubleTap(_:)))
         doubleTap.numberOfTapsRequired = 2
         view.addGestureRecognizer(doubleTap)
-        
+      
         /// 双击时，单击失效
         singleTap.require(toFail: doubleTap)
         
-        let longPress = UILongPressGestureRecognizer(target: self, action: #selector(handleLongPress(_:)))
         view.addGestureRecognizer(longPress)
-        
+
         /// 添加拖拽手势
         addPanGesture(true)
+    }
+    
+    func removeGestureRecognizer() {
+        if view.gestureRecognizers?.contains(singleTap) == true {
+            view.removeGestureRecognizer(singleTap)
+        }
+        
+        if view.gestureRecognizers?.contains(doubleTap) == true {
+            view.removeGestureRecognizer(doubleTap)
+        }
+        
+        if view.gestureRecognizers?.contains(longPress) == true {
+            view.removeGestureRecognizer(longPress)
+        }
     }
     
     func addPanGesture(_ isFirst: Bool) {
@@ -470,7 +506,6 @@ private extension DDPhotoBrowerController {
         default:
             break
         }
-
     }
 
     func showAlertSaveImage() {
@@ -582,7 +617,6 @@ extension DDPhotoBrowerController {
     @objc func handleLongPress(_ tap: UILongPressGestureRecognizer) {
         switch tap.state {
         case .began:
-            
             if isLongPressAutoSaveImageToAlbum == true {
                 libraryAuthorization()
             } else {

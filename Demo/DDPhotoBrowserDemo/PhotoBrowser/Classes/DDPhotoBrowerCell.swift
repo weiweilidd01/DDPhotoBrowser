@@ -10,6 +10,7 @@ import UIKit
 
 class DDPhotoBrowerCell: UICollectionViewCell {
     public let photoView = DDPhotoView(frame: CGRect.zero)
+    
     override init(frame: CGRect) {
         super.init(frame: frame)
         contentView.backgroundColor = UIColor.clear
@@ -59,6 +60,13 @@ class DDPhotoBrowerCell: UICollectionViewCell {
             self.photoView.imageView.frame = endRect
         }) { (finished) in
             self.photoView.setupPhoto(photo)
+            if photo.isVideo == true {
+                let screenWidth: CGFloat = UIScreen.main.bounds.size.width
+                let screenHeight: CGFloat = UIScreen.main.bounds.size.height
+                self.photoView.videoView.frame = CGRect(x: 0, y: 0, width: screenWidth, height: screenHeight)
+                self.photoView.videoView.playBtnAction(nil)
+                photo.isFirstPhoto = false
+            }
         }
     }
 }

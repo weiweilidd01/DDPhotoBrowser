@@ -7,6 +7,9 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		CE7FB8FD21F7FE970020F5A2 /* PhotoBrowserVideoView.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE7FB8FC21F7FE970020F5A2 /* PhotoBrowserVideoView.swift */; };
+		CE7FB8FF21F8002A0020F5A2 /* PhotoBrowserVideoBottom.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE7FB8FE21F8002A0020F5A2 /* PhotoBrowserVideoBottom.swift */; };
+		CE7FB90121F8007E0020F5A2 /* PhotoBrowserSlider.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE7FB90021F8007E0020F5A2 /* PhotoBrowserSlider.swift */; };
 		CE99648521F5B0A30093BC92 /* UIImage+ScaleToSize.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE99647B21F5B0A30093BC92 /* UIImage+ScaleToSize.swift */; };
 		CE99648621F5B0A30093BC92 /* DDPhotoBrowerCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE99647C21F5B0A30093BC92 /* DDPhotoBrowerCell.swift */; };
 		CE99648721F5B0A30093BC92 /* DDPhoto.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE99647D21F5B0A30093BC92 /* DDPhoto.swift */; };
@@ -49,6 +52,9 @@
 		1F8C7C08F92E7816CC654AD9 /* Pods-DDPhotoBrowserDemo.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-DDPhotoBrowserDemo.release.xcconfig"; path = "Pods/Target Support Files/Pods-DDPhotoBrowserDemo/Pods-DDPhotoBrowserDemo.release.xcconfig"; sourceTree = "<group>"; };
 		3AC7955B277A0FCB473D2FBC /* Pods_DDPhotoBrowserDemo.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_DDPhotoBrowserDemo.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		742E299B0D0A20A20E3AACCC /* Pods-DDPhotoBrowserDemo.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-DDPhotoBrowserDemo.debug.xcconfig"; path = "Pods/Target Support Files/Pods-DDPhotoBrowserDemo/Pods-DDPhotoBrowserDemo.debug.xcconfig"; sourceTree = "<group>"; };
+		CE7FB8FC21F7FE970020F5A2 /* PhotoBrowserVideoView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PhotoBrowserVideoView.swift; sourceTree = "<group>"; };
+		CE7FB8FE21F8002A0020F5A2 /* PhotoBrowserVideoBottom.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PhotoBrowserVideoBottom.swift; sourceTree = "<group>"; };
+		CE7FB90021F8007E0020F5A2 /* PhotoBrowserSlider.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PhotoBrowserSlider.swift; sourceTree = "<group>"; };
 		CE99647B21F5B0A30093BC92 /* UIImage+ScaleToSize.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "UIImage+ScaleToSize.swift"; sourceTree = "<group>"; };
 		CE99647C21F5B0A30093BC92 /* DDPhotoBrowerCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DDPhotoBrowerCell.swift; sourceTree = "<group>"; };
 		CE99647D21F5B0A30093BC92 /* DDPhoto.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DDPhoto.swift; sourceTree = "<group>"; };
@@ -138,6 +144,9 @@
 				CE99648021F5B0A30093BC92 /* DDPhotoBrower.swift */,
 				CE99648121F5B0A30093BC92 /* DDPhotoViewLoading.swift */,
 				CE99648221F5B0A30093BC92 /* DDPhotoView.swift */,
+				CE7FB8FC21F7FE970020F5A2 /* PhotoBrowserVideoView.swift */,
+				CE7FB8FE21F8002A0020F5A2 /* PhotoBrowserVideoBottom.swift */,
+				CE7FB90021F8007E0020F5A2 /* PhotoBrowserSlider.swift */,
 			);
 			path = Classes;
 			sourceTree = "<group>";
@@ -392,10 +401,13 @@
 				CE9A62B021A6574B008288F6 /* ViewController.swift in Sources */,
 				CE99648C21F5B0A30093BC92 /* DDPhotoView.swift in Sources */,
 				CE99648A21F5B0A30093BC92 /* DDPhotoBrower.swift in Sources */,
+				CE7FB8FF21F8002A0020F5A2 /* PhotoBrowserVideoBottom.swift in Sources */,
 				CE99648821F5B0A30093BC92 /* DDScrollView.swift in Sources */,
 				CE9A62AE21A6574B008288F6 /* AppDelegate.swift in Sources */,
+				CE7FB8FD21F7FE970020F5A2 /* PhotoBrowserVideoView.swift in Sources */,
 				CE99648721F5B0A30093BC92 /* DDPhoto.swift in Sources */,
 				CE99648521F5B0A30093BC92 /* UIImage+ScaleToSize.swift in Sources */,
+				CE7FB90121F8007E0020F5A2 /* PhotoBrowserSlider.swift in Sources */,
 				CE99648621F5B0A30093BC92 /* DDPhotoBrowerCell.swift in Sources */,
 				CEB1F22121C205C500B44A8E /* BrowserController.swift in Sources */,
 				CE99648921F5B0A30093BC92 /* DDPhotoBrowerController.swift in Sources */,

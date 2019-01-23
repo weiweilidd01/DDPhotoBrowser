@@ -38,16 +38,22 @@ class DDPhotoView: UIView {
         imageView.frame = CGRect(x: 0, y: 0, width: sWidth, height: sHeight)
         imageView.clipsToBounds = true
         imageView.autoPlayAnimatedImage = false
+        imageView.isUserInteractionEnabled = true
         return imageView
     }()
-    
-//    private var loadingView: DDPhotoViewLoading = DDPhotoViewLoading()
     
     private lazy var activityView: UIActivityIndicatorView = {
         let activityView = UIActivityIndicatorView(frame: CGRect(x: 0, y: 0, width: 30, height: 30))
         activityView.center = CGPoint(x: UIScreen.main.bounds.width / 2.0, y:  UIScreen.main.bounds.height / 2.0)
         activityView.activityIndicatorViewStyle = UIActivityIndicatorViewStyle.whiteLarge
         return activityView
+    }()
+    
+    //MARK -- 视屏播放相关
+    let videoView: PhotoBrowserVideoView = {
+        let videoView = PhotoBrowserVideoView()
+        videoView.backgroundColor = UIColor.black
+        return videoView
     }()
 
     public var photo: DDPhoto?
@@ -63,6 +69,19 @@ class DDPhotoView: UIView {
         addSubview(activityView)
         scrollView.addSubview(imageView)
         activityView.isHidden = false
+        
+        imageView.addSubview(videoView)
+        videoView.isHidden = true
+    }
+    
+    override func layoutSubviews() {
+        super.layoutSubviews()
+        if photo?.isVideo == true {
+            let screenWidth: CGFloat = UIScreen.main.bounds.size.width
+            let screenHeight: CGFloat = UIScreen.main.bounds.size.height
+            imageView.frame = CGRect(x: 0, y: 0, width: screenWidth, height: screenHeight)
+            videoView.frame = imageView.bounds
+        }
     }
     
     required init?(coder aDecoder: NSCoder) {
@@ -78,6 +97,14 @@ class DDPhotoView: UIView {
 extension DDPhotoView {
     public func setupPhoto(_ photo: DDPhoto?) {
         self.photo = photo
+        if photo?.isVideo == true {
+            activityView.isHidden = true
+            videoView.isHidden = false
+            videoView.photo = photo
+            imageView.image = nil
+            return
+        }
+        videoView.isHidden = true
         loadImage(photo)
     }
     
@@ -190,12 +217,10 @@ extension DDPhotoView: UIScrollViewDelegate {
 }
 
 private extension DDPhotoView {
-    
     func loadImage(_ photo: DDPhoto?) {
         bringSubview(toFront: activityView)
         if let photo = photo {
             scrollView.setZoomScale(1, animated: false)
-            
             if let image = photo.image {
                 activityView.stopAnimating()
                 activityView.isHidden = true

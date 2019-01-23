@@ -14,7 +14,11 @@ public class DDPhoto: NSObject {
     public var url: URL? {
         didSet {
             if url?.absoluteString.hasSuffix(".gif") == true || url?.absoluteString.hasSuffix(".GIF") == true {
-                self.isGif = true
+                isGif = true
+            }
+            
+            if url?.absoluteString.hasSuffix(".mp4") == true || url?.absoluteString.hasSuffix(".mov") == true {
+                isVideo = true
             }
         }
     }
@@ -34,6 +38,8 @@ public class DDPhoto: NSObject {
     //MARK -- 下述参数无需配置
     /** gif */
      var isGif: Bool = false
+    /** video */
+    var isVideo: Bool = false
     /** 图片是否加载完成 */
     var isFinished: Bool = false
     /** 图片是否加载失败 */
