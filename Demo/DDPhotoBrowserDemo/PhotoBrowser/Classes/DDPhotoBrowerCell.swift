@@ -66,6 +66,8 @@ class DDPhotoBrowerCell: UICollectionViewCell {
                 self.photoView.videoView.frame = CGRect(x: 0, y: 0, width: screenWidth, height: screenHeight)
                 self.photoView.videoView.playBtnAction(nil)
                 photo.isFirstPhoto = false
+                self.photoView.videoView.setNeedsLayout()
+                self.photoView.videoView.layoutIfNeeded()
             }
         }
     }

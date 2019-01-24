@@ -89,6 +89,12 @@ class DDPhotoBrowerController: UIViewController {
         // Do any additional setup after loading the view.
         setupUI()
         addGestureRecognizer()
+        
+        NotificationCenter.default.addObserver(self, selector: #selector(closeNotification), name: NSNotification.Name("PhotoBrowserVideoViewCloseKey"), object: nil)
+    }
+    
+    @objc func closeNotification() {
+        handleSingleTap(singleTap)
     }
     
     override func viewDidLayoutSubviews() {
@@ -107,6 +113,7 @@ class DDPhotoBrowerController: UIViewController {
         photoCollectionView = nil
         photos?.removeAll()
         photos = nil
+        NotificationCenter.default.removeObserver(self)
     }
 }
 
@@ -217,7 +224,6 @@ private extension DDPhotoBrowerController {
         }
         return photos?[currentIndex]
     }
-    
     
     /// 获取当前cell中的photoView
     ///

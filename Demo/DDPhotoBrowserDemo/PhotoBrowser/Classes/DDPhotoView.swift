@@ -80,7 +80,9 @@ class DDPhotoView: UIView {
             let screenWidth: CGFloat = UIScreen.main.bounds.size.width
             let screenHeight: CGFloat = UIScreen.main.bounds.size.height
             imageView.frame = CGRect(x: 0, y: 0, width: screenWidth, height: screenHeight)
-            videoView.frame = imageView.bounds
+            videoView.frame = CGRect(x: 0, y: 0, width: screenWidth, height: screenHeight)
+            videoView.setNeedsLayout()
+            videoView.layoutIfNeeded()
         }
     }
     
@@ -121,8 +123,10 @@ extension DDPhotoView {
     }
         
     func adjustFrame(photo: DDPhoto? = nil) {
+        if photo?.isVideo == true {
+            return
+        }
         scrollView.setZoomScale(1, animated: false)
-        
         var frame = scrollView.frame
         
         if imageView.image != nil {
@@ -272,6 +276,6 @@ private extension DDPhotoView {
     
     func cleanImage() {
         imageView.image = nil
-        adjustFrame()
+        adjustFrame(photo: photo)
     }
 }

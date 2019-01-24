@@ -77,6 +77,16 @@ class PhotoBrowserVideoView: UIView {
         return tap
     }()
     
+    lazy private var closeBtn: UIButton = {
+        let closeBtn = UIButton(type: .custom)
+        if let path = Bundle(for: PhotoBrowserVideoBottom.classForCoder()).path(forResource: "DDPhotoBrowser", ofType: "bundle"),
+            let bundle = Bundle(path: path),
+            let image = UIImage(named: "arrow", in: bundle, compatibleWith: nil) {
+            closeBtn.setImage(image, for: .normal)
+        }
+        closeBtn.addTarget(self, action: #selector(closeBtnAction), for: .touchUpInside)
+        return closeBtn
+    }()
     //当前播放状态
     var state: PlayerState = .none {
         didSet {
@@ -109,6 +119,7 @@ class PhotoBrowserVideoView: UIView {
             photoImageView.isHidden = false
             photoImageView.image = photo?.sourceImageView?.image
             bottomView.isHidden = false
+            closeBtn.isHidden = false
             addGestureRecognizer(tap)
             reset()
         }
@@ -136,10 +147,12 @@ class PhotoBrowserVideoView: UIView {
         if #available(iOS 11.0, *) {
             inset = safeAreaInsets
         }
+        
         let screenWidth: CGFloat = UIScreen.main.bounds.size.width
         let screenHeight: CGFloat = UIScreen.main.bounds.size.height
-        
         bottomView.frame = CGRect(x: 0, y: screenHeight - inset.bottom - 50, width: screenWidth, height: 50)
+        
+        closeBtn.frame = CGRect(x: 10, y: inset.top + 10, width: 20, height: 20)
     }
     
     deinit {
@@ -156,6 +169,7 @@ extension PhotoBrowserVideoView {
         photoImageView.isHidden = true
         player?.play()
         bottomView.isHidden = false
+        closeBtn.isHidden = false
         bottomView.changePlayBtnImage(true)
     }
     
@@ -185,6 +199,7 @@ extension PhotoBrowserVideoView {
         playBtn.isHidden = false
         photoImageView.isHidden = false
         bottomView.isHidden = true
+        closeBtn.isHidden = false
     }
     
     /// 是否正在播放
@@ -252,6 +267,7 @@ private extension PhotoBrowserVideoView {
         activityView.isHidden = true
         activityView.stopAnimating()
         bringSubview(toFront: playBtn)
+        addSubview(closeBtn)
     }
     
     func addNotification() {
@@ -272,6 +288,10 @@ extension PhotoBrowserVideoView: UIGestureRecognizerDelegate {
         } else {
             return true
         }
+    }
+    
+    @objc func closeBtnAction() {
+        NotificationCenter.default.post(name: NSNotification.Name("PhotoBrowserVideoViewCloseKey"), object: nil)
     }
     
     @objc func playBtnAction(_ sender: UIButton?) {
@@ -309,6 +329,7 @@ extension PhotoBrowserVideoView: UIGestureRecognizerDelegate {
     
     @objc func tapGestureRecognizer(_ tap: UITapGestureRecognizer) {
         bottomView.isHidden = !bottomView.isHidden
+        closeBtn.isHidden = !closeBtn.isHidden
     }
     
     @objc func playFinished() {
@@ -318,6 +339,7 @@ extension PhotoBrowserVideoView: UIGestureRecognizerDelegate {
         activityView.stopAnimating()
         photoImageView.isHidden = false
         bottomView.isHidden = true
+        
         bringSubview(toFront: playBtn)
         player?.seek(to: kCMTimeZero)
     }
