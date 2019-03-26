@@ -241,9 +241,9 @@ private extension PhotoBrowserVideoView {
     }
     
     func addPlayerNotifications() {
-        NotificationCenter.default.addObserver(self, selector: .playerItemDidPlayToEndTime, name: .AVPlayerItemDidPlayToEndTime, object: nil)
-        NotificationCenter.default.addObserver(self, selector: .applicationWillEnterForeground, name: .UIApplicationWillEnterForeground, object: nil)
-        NotificationCenter.default.addObserver(self, selector: .applicationDidEnterBackground, name: .UIApplicationDidEnterBackground, object: nil)
+        NotificationCenter.default.addObserver(self, selector: .photoPlayerItemDidPlayToEndTime, name: .AVPlayerItemDidPlayToEndTime, object: nil)
+        NotificationCenter.default.addObserver(self, selector: .photoApplicationWillEnterForeground, name: .UIApplicationWillEnterForeground, object: nil)
+        NotificationCenter.default.addObserver(self, selector: .photoApplicationDidEnterBackground, name: .UIApplicationDidEnterBackground, object: nil)
     }
     
     func removePlayerItemObservers() {
@@ -431,9 +431,9 @@ extension PhotoBrowserVideoView {
 
 // MARK: - Selecter
 extension Selector {
-    static let playerItemDidPlayToEndTime = #selector(PhotoBrowserVideoView.playerItemDidPlayToEnd(_:))
-    static let applicationWillEnterForeground = #selector(PhotoBrowserVideoView.applicationWillEnterForeground(_:))
-    static let applicationDidEnterBackground = #selector(PhotoBrowserVideoView.applicationDidEnterBackground(_:))
+    static let photoPlayerItemDidPlayToEndTime = #selector(PhotoBrowserVideoView.playerItemDidPlayToEnd(_:))
+    static let photoApplicationWillEnterForeground = #selector(PhotoBrowserVideoView.applicationWillEnterForeground(_:))
+    static let photoApplicationDidEnterBackground = #selector(PhotoBrowserVideoView.applicationDidEnterBackground(_:))
 }
 
 
