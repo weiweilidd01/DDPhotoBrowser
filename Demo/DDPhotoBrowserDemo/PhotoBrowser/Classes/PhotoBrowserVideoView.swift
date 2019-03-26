@@ -56,12 +56,12 @@ class PhotoBrowserVideoView: UIView {
     private lazy var activityView: UIActivityIndicatorView = {
         let activityView = UIActivityIndicatorView(frame: CGRect(x: 0, y: 0, width: 30, height: 30))
         activityView.center = CGPoint(x: UIScreen.main.bounds.width / 2.0, y:  UIScreen.main.bounds.height / 2.0)
-        activityView.activityIndicatorViewStyle = UIActivityIndicatorViewStyle.whiteLarge
+        activityView.style = .whiteLarge
         return activityView
     }()
     //监听player时间回调
     private var timeObserver: Any?
-    private var playerItemStatus: AVPlayerItemStatus = .unknown
+    private var playerItemStatus: AVPlayerItem.Status = .unknown
     private lazy var photoImageView: UIImageView = {
         let imageView = UIImageView()
         imageView.contentMode = .scaleAspectFit
@@ -143,7 +143,7 @@ class PhotoBrowserVideoView: UIView {
         
         playLayer.frame = bounds
         
-        var inset = UIEdgeInsetsMake(0, 0, 0, 0);
+        var inset = UIEdgeInsets(top: 0, left: 0, bottom: 0, right: 0);
         if #available(iOS 11.0, *) {
             inset = safeAreaInsets
         }
@@ -165,7 +165,7 @@ class PhotoBrowserVideoView: UIView {
 extension PhotoBrowserVideoView {
     public func play() {
         playBtn.isHidden = true
-        bringSubview(toFront: bottomView)
+        bringSubviewToFront(bottomView)
         photoImageView.isHidden = true
         player?.play()
         bottomView.isHidden = false
@@ -220,7 +220,7 @@ extension PhotoBrowserVideoView {
         
         DispatchQueue.main.async { [weak self]  in
             self?.pause()
-            self?.player?.currentItem?.seek(to: CMTimeMakeWithSeconds(time, Int32(NSEC_PER_SEC)), completionHandler: { (finished) in
+            self?.player?.currentItem?.seek(to: CMTimeMakeWithSeconds(time, preferredTimescale: Int32(NSEC_PER_SEC)), completionHandler: { (finished) in
                 DispatchQueue.main.async(execute: {
                     self?.play()
                     if let completion = completion {
@@ -241,9 +241,9 @@ private extension PhotoBrowserVideoView {
     }
     
     func addPlayerNotifications() {
-        NotificationCenter.default.addObserver(self, selector: .photoPlayerItemDidPlayToEndTime, name: .AVPlayerItemDidPlayToEndTime, object: nil)
-        NotificationCenter.default.addObserver(self, selector: .photoApplicationWillEnterForeground, name: .UIApplicationWillEnterForeground, object: nil)
-        NotificationCenter.default.addObserver(self, selector: .photoApplicationDidEnterBackground, name: .UIApplicationDidEnterBackground, object: nil)
+        NotificationCenter.default.addObserver(self, selector: .playerItemDidPlayToEndTime, name: .AVPlayerItemDidPlayToEndTime, object: nil)
+        NotificationCenter.default.addObserver(self, selector: .applicationWillEnterForeground, name: UIApplication.willEnterForegroundNotification, object: nil)
+        NotificationCenter.default.addObserver(self, selector: .applicationDidEnterBackground, name: UIApplication.didEnterBackgroundNotification, object: nil)
     }
     
     func removePlayerItemObservers() {
@@ -254,8 +254,8 @@ private extension PhotoBrowserVideoView {
     
     func removePlayerNotifations() {
         NotificationCenter.default.removeObserver(self, name: .AVPlayerItemDidPlayToEndTime, object: nil)
-        NotificationCenter.default.removeObserver(self, name: .UIApplicationWillEnterForeground, object: nil)
-        NotificationCenter.default.removeObserver(self, name: .UIApplicationDidEnterBackground, object: nil)
+        NotificationCenter.default.removeObserver(self, name: UIApplication.willEnterForegroundNotification, object: nil)
+        NotificationCenter.default.removeObserver(self, name: UIApplication.didEnterBackgroundNotification, object: nil)
     }
     
     func setupUI() {
@@ -266,7 +266,7 @@ private extension PhotoBrowserVideoView {
         bottomView.videoView = self
         activityView.isHidden = true
         activityView.stopAnimating()
-        bringSubview(toFront: playBtn)
+        bringSubviewToFront(playBtn)
         addSubview(closeBtn)
     }
     
@@ -334,21 +334,21 @@ extension PhotoBrowserVideoView: UIGestureRecognizerDelegate {
     
     @objc func playFinished() {
         playBtn.isHidden = false
-        bringSubview(toFront: playBtn)
+        bringSubviewToFront(playBtn)
         activityView.isHidden = true
         activityView.stopAnimating()
         photoImageView.isHidden = false
         bottomView.isHidden = true
         
-        bringSubview(toFront: playBtn)
-        player?.seek(to: kCMTimeZero)
+        bringSubviewToFront(playBtn)
+        player?.seek(to: CMTime.zero)
     }
     
     override func observeValue(forKeyPath keyPath: String?, of object: Any?, change: [NSKeyValueChangeKey : Any]?, context: UnsafeMutableRawPointer?) {
         if keyPath == #keyPath(AVPlayerItem.status) {
-            let status: AVPlayerItemStatus
+            let status: AVPlayerItem.Status
             if let statusNumber = change?[.newKey] as? NSNumber {
-                status = AVPlayerItemStatus(rawValue: statusNumber.intValue)!
+                status = AVPlayerItem.Status(rawValue: statusNumber.intValue)!
             } else {
                 status = .unknown
             }
@@ -431,9 +431,9 @@ extension PhotoBrowserVideoView {
 
 // MARK: - Selecter
 extension Selector {
-    static let photoPlayerItemDidPlayToEndTime = #selector(PhotoBrowserVideoView.playerItemDidPlayToEnd(_:))
-    static let photoApplicationWillEnterForeground = #selector(PhotoBrowserVideoView.applicationWillEnterForeground(_:))
-    static let photoApplicationDidEnterBackground = #selector(PhotoBrowserVideoView.applicationDidEnterBackground(_:))
+    static let playerItemDidPlayToEndTime = #selector(PhotoBrowserVideoView.playerItemDidPlayToEnd(_:))
+    static let applicationWillEnterForeground = #selector(PhotoBrowserVideoView.applicationWillEnterForeground(_:))
+    static let applicationDidEnterBackground = #selector(PhotoBrowserVideoView.applicationDidEnterBackground(_:))
 }
 
 

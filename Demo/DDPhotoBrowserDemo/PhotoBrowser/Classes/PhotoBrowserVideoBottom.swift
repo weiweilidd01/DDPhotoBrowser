@@ -191,7 +191,7 @@ private extension PhotoBrowserVideoBottom {
             self?.timeSliderTouchMoved()
         }
         
-        NotificationCenter.default.addObserver(self, selector: #selector(deviceOrientationDidChange(_:)), name: NSNotification.Name.UIDeviceOrientationDidChange, object: nil)
+        NotificationCenter.default.addObserver(self, selector: #selector(deviceOrientationDidChange(_:)), name: UIDevice.orientationDidChangeNotification, object: nil)
     }
     
     func timeSliderTouchMoved() {

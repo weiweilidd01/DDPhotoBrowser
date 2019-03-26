@@ -46,6 +46,7 @@ class DDPhotoBrowerController: UIViewController {
     private var photos: [DDPhoto]?
     private var isPortraitToUp: Bool = true
     private var isStatusBarShowing: Bool = false
+    private var isDismissing: Bool = false
 
     private var photoCollectionView: UICollectionView?
     private let flowLayout: UICollectionViewFlowLayout = UICollectionViewFlowLayout()
@@ -99,6 +100,9 @@ class DDPhotoBrowerController: UIViewController {
     
     override func viewDidLayoutSubviews() {
         super.viewDidLayoutSubviews()
+        if isDismissing {
+            return
+        }
         layoutSubviews()
     }
     
@@ -238,6 +242,7 @@ private extension DDPhotoBrowerController {
     func setupUI() {
         view.backgroundColor = UIColor.black
         contentView.backgroundColor = UIColor.clear
+        contentView.clipsToBounds = true
         view.addSubview(contentView)
         
         flowLayout.scrollDirection = .horizontal
@@ -348,6 +353,7 @@ private extension DDPhotoBrowerController {
     }
     
     func showDismissAnimation() {
+        isDismissing = true
         let photoView = currentPhotoView()
         let photo = photos?[currentIndex]
         var sourceRect = photo?.sourceFrame
@@ -365,15 +371,20 @@ private extension DDPhotoBrowerController {
             if isHideSourceView {
                 photo?.sourceImageView?.alpha = 0
             }
-            sourceRect = photo?.sourceImageView?.superview?.convert(photo?.sourceImageView?.frame ?? CGRect.zero, to: photoView)
+            sourceRect = photo?.sourceImageView?.superview?.convert(photo?.sourceImageView?.frame ?? CGRect.zero, to: contentView)
         } else {
             if isHideSourceView && (photo?.sourceImageView != nil) {
                 photo?.sourceImageView?.alpha = 0
             }
         }
-       
-        UIView.animate(withDuration: 0.25, animations: {
-            photoView.imageView.frame = sourceRect ?? CGRect.zero
+        
+        var rect = photoView.imageView.frame
+        if photoView.imageView.frame.width > contentView.frame.width {
+            rect = contentView.frame
+        }
+        contentView.frame = rect
+        UIView.animate(withDuration: 0.2, animations: {
+            self.contentView.frame = sourceRect ?? CGRect.zero
             self.view.backgroundColor = UIColor.clear
         }) { (finished) in
             self.dismissAnimated(false)
@@ -409,7 +420,7 @@ private extension DDPhotoBrowerController {
         
         contentView.frame = CGRect(x: 0, y: 0, width: screenWidth, height: screenHeight)
         
-        flowLayout.sectionInset = UIEdgeInsetsMake(0, 0, 0, 0)
+        flowLayout.sectionInset = UIEdgeInsets(top: 0, left: 0, bottom: 0, right: 0)
         flowLayout.itemSize = CGSize(width: screenWidth + 10, height: screenHeight)
         photoCollectionView?.frame = CGRect(x: 0, y: 0, width: screenWidth + 10, height: screenHeight)
       
@@ -470,7 +481,7 @@ private extension DDPhotoBrowerController {
             break
         case .changed:
             photoView.imageView.transform = CGAffineTransform(translationX: 0, y: point.y)
-            var percent: CGFloat = CGFloat(1.0 - fabs(point.y) / view.frame.height)
+            var percent: CGFloat = CGFloat(1.0 - abs(point.y) / view.frame.height)
             percent = CGFloat.maximum(percent, 0)
             let s: CGFloat = CGFloat.maximum(percent, 0.5)
             let translation = CGAffineTransform(translationX: point.x / s, y: point.y / s);
@@ -479,7 +490,7 @@ private extension DDPhotoBrowerController {
             view.backgroundColor = UIColor.black.withAlphaComponent(percent)
             break
         case .ended, .cancelled:
-            if (fabs(point.y) > 200) || (fabs(velocity.y) > 500) {
+            if (abs(point.y) > 200) || (abs(velocity.y) > 500) {
                 showDismissAnimation()
             } else {
                 showCancelAnimation()
@@ -553,7 +564,7 @@ private extension DDPhotoBrowerController {
         }
         let actionCommit = UIAlertAction(title: "去设置", style: .default) { (action) in
             //去设置
-            if let url = URL(string: UIApplicationOpenSettingsURLString) {
+            if let url = URL(string: UIApplication.openSettingsURLString) {
                 UIApplication.shared.openURL(url)
             }
         }

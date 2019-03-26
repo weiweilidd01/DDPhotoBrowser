@@ -45,7 +45,7 @@ class DDPhotoView: UIView {
     private lazy var activityView: UIActivityIndicatorView = {
         let activityView = UIActivityIndicatorView(frame: CGRect(x: 0, y: 0, width: 30, height: 30))
         activityView.center = CGPoint(x: UIScreen.main.bounds.width / 2.0, y:  UIScreen.main.bounds.height / 2.0)
-        activityView.activityIndicatorViewStyle = UIActivityIndicatorViewStyle.whiteLarge
+        activityView.style = .whiteLarge
         return activityView
     }()
     
@@ -222,12 +222,14 @@ extension DDPhotoView: UIScrollViewDelegate {
 
 private extension DDPhotoView {
     func loadImage(_ photo: DDPhoto?) {
-        bringSubview(toFront: activityView)
+        bringSubviewToFront(activityView)
         if let photo = photo {
             scrollView.setZoomScale(1, animated: false)
             if let image = photo.image {
                 activityView.stopAnimating()
                 activityView.isHidden = true
+                scrollView.isScrollEnabled = true
+                photo.isFinished = true
                 imageView.image = image
                 adjustFrame(photo: photo)
                 return

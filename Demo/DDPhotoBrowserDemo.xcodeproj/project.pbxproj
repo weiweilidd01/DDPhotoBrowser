@@ -7,18 +7,18 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		CE7FBA2321F96A3E0020F5A2 /* UIImage+ScaleToSize.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE7FBA1621F96A3E0020F5A2 /* UIImage+ScaleToSize.swift */; };
-		CE7FBA2421F96A3E0020F5A2 /* PhotoBrowserVideoBottom.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE7FBA1721F96A3E0020F5A2 /* PhotoBrowserVideoBottom.swift */; };
-		CE7FBA2521F96A3E0020F5A2 /* PhotoBrowserSlider.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE7FBA1821F96A3E0020F5A2 /* PhotoBrowserSlider.swift */; };
-		CE7FBA2621F96A3E0020F5A2 /* DDPhotoBrowerCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE7FBA1921F96A3E0020F5A2 /* DDPhotoBrowerCell.swift */; };
-		CE7FBA2721F96A3E0020F5A2 /* DDPhoto.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE7FBA1A21F96A3E0020F5A2 /* DDPhoto.swift */; };
-		CE7FBA2821F96A3E0020F5A2 /* DDScrollView.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE7FBA1B21F96A3E0020F5A2 /* DDScrollView.swift */; };
-		CE7FBA2921F96A3E0020F5A2 /* DDPhotoBrowerController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE7FBA1C21F96A3E0020F5A2 /* DDPhotoBrowerController.swift */; };
-		CE7FBA2A21F96A3E0020F5A2 /* DDPhotoBrower.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE7FBA1D21F96A3E0020F5A2 /* DDPhotoBrower.swift */; };
-		CE7FBA2B21F96A3E0020F5A2 /* DDPhotoViewLoading.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE7FBA1E21F96A3E0020F5A2 /* DDPhotoViewLoading.swift */; };
-		CE7FBA2C21F96A3E0020F5A2 /* DDPhotoView.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE7FBA1F21F96A3E0020F5A2 /* DDPhotoView.swift */; };
-		CE7FBA2D21F96A3E0020F5A2 /* PhotoBrowserVideoView.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE7FBA2021F96A3E0020F5A2 /* PhotoBrowserVideoView.swift */; };
-		CE7FBA2E21F96A3E0020F5A2 /* DDPhotoBrowser.bundle in Resources */ = {isa = PBXBuildFile; fileRef = CE7FBA2221F96A3E0020F5A2 /* DDPhotoBrowser.bundle */; };
+		CE51C781224A31F70011CBD9 /* UIImage+ScaleToSize.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE51C774224A31F70011CBD9 /* UIImage+ScaleToSize.swift */; };
+		CE51C782224A31F70011CBD9 /* PhotoBrowserVideoBottom.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE51C775224A31F70011CBD9 /* PhotoBrowserVideoBottom.swift */; };
+		CE51C783224A31F70011CBD9 /* PhotoBrowserSlider.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE51C776224A31F70011CBD9 /* PhotoBrowserSlider.swift */; };
+		CE51C784224A31F70011CBD9 /* DDPhotoBrowerCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE51C777224A31F70011CBD9 /* DDPhotoBrowerCell.swift */; };
+		CE51C785224A31F70011CBD9 /* DDPhoto.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE51C778224A31F70011CBD9 /* DDPhoto.swift */; };
+		CE51C786224A31F70011CBD9 /* DDScrollView.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE51C779224A31F70011CBD9 /* DDScrollView.swift */; };
+		CE51C787224A31F70011CBD9 /* DDPhotoBrowerController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE51C77A224A31F70011CBD9 /* DDPhotoBrowerController.swift */; };
+		CE51C788224A31F70011CBD9 /* DDPhotoBrower.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE51C77B224A31F70011CBD9 /* DDPhotoBrower.swift */; };
+		CE51C789224A31F70011CBD9 /* DDPhotoViewLoading.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE51C77C224A31F70011CBD9 /* DDPhotoViewLoading.swift */; };
+		CE51C78A224A31F70011CBD9 /* DDPhotoView.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE51C77D224A31F70011CBD9 /* DDPhotoView.swift */; };
+		CE51C78B224A31F70011CBD9 /* PhotoBrowserVideoView.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE51C77E224A31F70011CBD9 /* PhotoBrowserVideoView.swift */; };
+		CE51C78C224A31F70011CBD9 /* DDPhotoBrowser.bundle in Resources */ = {isa = PBXBuildFile; fileRef = CE51C780224A31F70011CBD9 /* DDPhotoBrowser.bundle */; };
 		CE9A62AE21A6574B008288F6 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE9A62AD21A6574B008288F6 /* AppDelegate.swift */; };
 		CE9A62B021A6574B008288F6 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE9A62AF21A6574B008288F6 /* ViewController.swift */; };
 		CE9A62B321A6574B008288F6 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = CE9A62B121A6574B008288F6 /* Main.storyboard */; };
@@ -52,18 +52,18 @@
 		1F8C7C08F92E7816CC654AD9 /* Pods-DDPhotoBrowserDemo.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-DDPhotoBrowserDemo.release.xcconfig"; path = "Pods/Target Support Files/Pods-DDPhotoBrowserDemo/Pods-DDPhotoBrowserDemo.release.xcconfig"; sourceTree = "<group>"; };
 		3AC7955B277A0FCB473D2FBC /* Pods_DDPhotoBrowserDemo.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_DDPhotoBrowserDemo.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		742E299B0D0A20A20E3AACCC /* Pods-DDPhotoBrowserDemo.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-DDPhotoBrowserDemo.debug.xcconfig"; path = "Pods/Target Support Files/Pods-DDPhotoBrowserDemo/Pods-DDPhotoBrowserDemo.debug.xcconfig"; sourceTree = "<group>"; };
-		CE7FBA1621F96A3E0020F5A2 /* UIImage+ScaleToSize.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "UIImage+ScaleToSize.swift"; sourceTree = "<group>"; };
-		CE7FBA1721F96A3E0020F5A2 /* PhotoBrowserVideoBottom.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PhotoBrowserVideoBottom.swift; sourceTree = "<group>"; };
-		CE7FBA1821F96A3E0020F5A2 /* PhotoBrowserSlider.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PhotoBrowserSlider.swift; sourceTree = "<group>"; };
-		CE7FBA1921F96A3E0020F5A2 /* DDPhotoBrowerCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DDPhotoBrowerCell.swift; sourceTree = "<group>"; };
-		CE7FBA1A21F96A3E0020F5A2 /* DDPhoto.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DDPhoto.swift; sourceTree = "<group>"; };
-		CE7FBA1B21F96A3E0020F5A2 /* DDScrollView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DDScrollView.swift; sourceTree = "<group>"; };
-		CE7FBA1C21F96A3E0020F5A2 /* DDPhotoBrowerController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DDPhotoBrowerController.swift; sourceTree = "<group>"; };
-		CE7FBA1D21F96A3E0020F5A2 /* DDPhotoBrower.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DDPhotoBrower.swift; sourceTree = "<group>"; };
-		CE7FBA1E21F96A3E0020F5A2 /* DDPhotoViewLoading.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DDPhotoViewLoading.swift; sourceTree = "<group>"; };
-		CE7FBA1F21F96A3E0020F5A2 /* DDPhotoView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DDPhotoView.swift; sourceTree = "<group>"; };
-		CE7FBA2021F96A3E0020F5A2 /* PhotoBrowserVideoView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PhotoBrowserVideoView.swift; sourceTree = "<group>"; };
-		CE7FBA2221F96A3E0020F5A2 /* DDPhotoBrowser.bundle */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.plug-in"; path = DDPhotoBrowser.bundle; sourceTree = "<group>"; };
+		CE51C774224A31F70011CBD9 /* UIImage+ScaleToSize.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "UIImage+ScaleToSize.swift"; sourceTree = "<group>"; };
+		CE51C775224A31F70011CBD9 /* PhotoBrowserVideoBottom.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PhotoBrowserVideoBottom.swift; sourceTree = "<group>"; };
+		CE51C776224A31F70011CBD9 /* PhotoBrowserSlider.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PhotoBrowserSlider.swift; sourceTree = "<group>"; };
+		CE51C777224A31F70011CBD9 /* DDPhotoBrowerCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DDPhotoBrowerCell.swift; sourceTree = "<group>"; };
+		CE51C778224A31F70011CBD9 /* DDPhoto.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DDPhoto.swift; sourceTree = "<group>"; };
+		CE51C779224A31F70011CBD9 /* DDScrollView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DDScrollView.swift; sourceTree = "<group>"; };
+		CE51C77A224A31F70011CBD9 /* DDPhotoBrowerController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DDPhotoBrowerController.swift; sourceTree = "<group>"; };
+		CE51C77B224A31F70011CBD9 /* DDPhotoBrower.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DDPhotoBrower.swift; sourceTree = "<group>"; };
+		CE51C77C224A31F70011CBD9 /* DDPhotoViewLoading.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DDPhotoViewLoading.swift; sourceTree = "<group>"; };
+		CE51C77D224A31F70011CBD9 /* DDPhotoView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DDPhotoView.swift; sourceTree = "<group>"; };
+		CE51C77E224A31F70011CBD9 /* PhotoBrowserVideoView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PhotoBrowserVideoView.swift; sourceTree = "<group>"; };
+		CE51C780224A31F70011CBD9 /* DDPhotoBrowser.bundle */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.plug-in"; path = DDPhotoBrowser.bundle; sourceTree = "<group>"; };
 		CE9A62AA21A6574B008288F6 /* DDPhotoBrowserDemo.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = DDPhotoBrowserDemo.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		CE9A62AD21A6574B008288F6 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		CE9A62AF21A6574B008288F6 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
@@ -124,37 +124,37 @@
 			name = Frameworks;
 			sourceTree = "<group>";
 		};
-		CE7FBA1421F96A3E0020F5A2 /* PhotoBrowser */ = {
+		CE51C772224A31F70011CBD9 /* PhotoBrowser */ = {
 			isa = PBXGroup;
 			children = (
-				CE7FBA1521F96A3E0020F5A2 /* Classes */,
-				CE7FBA2121F96A3E0020F5A2 /* Assets */,
+				CE51C773224A31F70011CBD9 /* Classes */,
+				CE51C77F224A31F70011CBD9 /* Assets */,
 			);
 			path = PhotoBrowser;
 			sourceTree = "<group>";
 		};
-		CE7FBA1521F96A3E0020F5A2 /* Classes */ = {
+		CE51C773224A31F70011CBD9 /* Classes */ = {
 			isa = PBXGroup;
 			children = (
-				CE7FBA1621F96A3E0020F5A2 /* UIImage+ScaleToSize.swift */,
-				CE7FBA1721F96A3E0020F5A2 /* PhotoBrowserVideoBottom.swift */,
-				CE7FBA1821F96A3E0020F5A2 /* PhotoBrowserSlider.swift */,
-				CE7FBA1921F96A3E0020F5A2 /* DDPhotoBrowerCell.swift */,
-				CE7FBA1A21F96A3E0020F5A2 /* DDPhoto.swift */,
-				CE7FBA1B21F96A3E0020F5A2 /* DDScrollView.swift */,
-				CE7FBA1C21F96A3E0020F5A2 /* DDPhotoBrowerController.swift */,
-				CE7FBA1D21F96A3E0020F5A2 /* DDPhotoBrower.swift */,
-				CE7FBA1E21F96A3E0020F5A2 /* DDPhotoViewLoading.swift */,
-				CE7FBA1F21F96A3E0020F5A2 /* DDPhotoView.swift */,
-				CE7FBA2021F96A3E0020F5A2 /* PhotoBrowserVideoView.swift */,
+				CE51C774224A31F70011CBD9 /* UIImage+ScaleToSize.swift */,
+				CE51C775224A31F70011CBD9 /* PhotoBrowserVideoBottom.swift */,
+				CE51C776224A31F70011CBD9 /* PhotoBrowserSlider.swift */,
+				CE51C777224A31F70011CBD9 /* DDPhotoBrowerCell.swift */,
+				CE51C778224A31F70011CBD9 /* DDPhoto.swift */,
+				CE51C779224A31F70011CBD9 /* DDScrollView.swift */,
+				CE51C77A224A31F70011CBD9 /* DDPhotoBrowerController.swift */,
+				CE51C77B224A31F70011CBD9 /* DDPhotoBrower.swift */,
+				CE51C77C224A31F70011CBD9 /* DDPhotoViewLoading.swift */,
+				CE51C77D224A31F70011CBD9 /* DDPhotoView.swift */,
+				CE51C77E224A31F70011CBD9 /* PhotoBrowserVideoView.swift */,
 			);
 			path = Classes;
 			sourceTree = "<group>";
 		};
-		CE7FBA2121F96A3E0020F5A2 /* Assets */ = {
+		CE51C77F224A31F70011CBD9 /* Assets */ = {
 			isa = PBXGroup;
 			children = (
-				CE7FBA2221F96A3E0020F5A2 /* DDPhotoBrowser.bundle */,
+				CE51C780224A31F70011CBD9 /* DDPhotoBrowser.bundle */,
 			);
 			path = Assets;
 			sourceTree = "<group>";
@@ -184,7 +184,7 @@
 		CE9A62AC21A6574B008288F6 /* DDPhotoBrowserDemo */ = {
 			isa = PBXGroup;
 			children = (
-				CE7FBA1421F96A3E0020F5A2 /* PhotoBrowser */,
+				CE51C772224A31F70011CBD9 /* PhotoBrowser */,
 				CE9A62AD21A6574B008288F6 /* AppDelegate.swift */,
 				CE9A62AF21A6574B008288F6 /* ViewController.swift */,
 				CEB1F21F21C205C500B44A8E /* BrowserController.swift */,
@@ -322,7 +322,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				CE9A62B821A6574C008288F6 /* LaunchScreen.storyboard in Resources */,
-				CE7FBA2E21F96A3E0020F5A2 /* DDPhotoBrowser.bundle in Resources */,
+				CE51C78C224A31F70011CBD9 /* DDPhotoBrowser.bundle in Resources */,
 				CE9A62B521A6574C008288F6 /* Assets.xcassets in Resources */,
 				CE9A62B321A6574B008288F6 /* Main.storyboard in Resources */,
 				CEB1F22221C205C500B44A8E /* BrowserController.xib in Resources */,
@@ -397,20 +397,20 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				CE7FBA2D21F96A3E0020F5A2 /* PhotoBrowserVideoView.swift in Sources */,
-				CE7FBA2521F96A3E0020F5A2 /* PhotoBrowserSlider.swift in Sources */,
+				CE51C78B224A31F70011CBD9 /* PhotoBrowserVideoView.swift in Sources */,
+				CE51C783224A31F70011CBD9 /* PhotoBrowserSlider.swift in Sources */,
 				CE9A62B021A6574B008288F6 /* ViewController.swift in Sources */,
-				CE7FBA2721F96A3E0020F5A2 /* DDPhoto.swift in Sources */,
+				CE51C785224A31F70011CBD9 /* DDPhoto.swift in Sources */,
 				CE9A62AE21A6574B008288F6 /* AppDelegate.swift in Sources */,
-				CE7FBA2C21F96A3E0020F5A2 /* DDPhotoView.swift in Sources */,
-				CE7FBA2421F96A3E0020F5A2 /* PhotoBrowserVideoBottom.swift in Sources */,
-				CE7FBA2321F96A3E0020F5A2 /* UIImage+ScaleToSize.swift in Sources */,
-				CE7FBA2B21F96A3E0020F5A2 /* DDPhotoViewLoading.swift in Sources */,
-				CE7FBA2621F96A3E0020F5A2 /* DDPhotoBrowerCell.swift in Sources */,
+				CE51C78A224A31F70011CBD9 /* DDPhotoView.swift in Sources */,
+				CE51C782224A31F70011CBD9 /* PhotoBrowserVideoBottom.swift in Sources */,
+				CE51C781224A31F70011CBD9 /* UIImage+ScaleToSize.swift in Sources */,
+				CE51C789224A31F70011CBD9 /* DDPhotoViewLoading.swift in Sources */,
+				CE51C784224A31F70011CBD9 /* DDPhotoBrowerCell.swift in Sources */,
 				CEB1F22121C205C500B44A8E /* BrowserController.swift in Sources */,
-				CE7FBA2821F96A3E0020F5A2 /* DDScrollView.swift in Sources */,
-				CE7FBA2921F96A3E0020F5A2 /* DDPhotoBrowerController.swift in Sources */,
-				CE7FBA2A21F96A3E0020F5A2 /* DDPhotoBrower.swift in Sources */,
+				CE51C786224A31F70011CBD9 /* DDScrollView.swift in Sources */,
+				CE51C787224A31F70011CBD9 /* DDPhotoBrowerController.swift in Sources */,
+				CE51C788224A31F70011CBD9 /* DDPhotoBrower.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
