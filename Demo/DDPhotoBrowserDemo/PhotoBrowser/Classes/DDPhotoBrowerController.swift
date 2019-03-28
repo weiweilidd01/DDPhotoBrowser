@@ -353,9 +353,9 @@ private extension DDPhotoBrowerController {
     }
     
     func showDismissAnimation() {
-        isDismissing = true
         let photoView = currentPhotoView()
         let photo = photos?[currentIndex]
+        //结束位置
         var sourceRect = photo?.sourceFrame
         
         if sourceRect?.equalTo(CGRect.zero) == true || sourceRect == nil {
@@ -377,19 +377,38 @@ private extension DDPhotoBrowerController {
                 photo?.sourceImageView?.alpha = 0
             }
         }
+        //起始位置
+        let originRect = photoView.imageView.frame
+
+        //动画image
+        let animationImage = UIImageView(image: photoView.imageView.image)
+        animationImage.frame = originRect
+        view.addSubview(animationImage)
         
-        var rect = photoView.imageView.frame
-        if photoView.imageView.frame.width > contentView.frame.width {
-            rect = contentView.frame
-        }
-        contentView.frame = rect
-        UIView.animate(withDuration: 0.2, animations: {
-            self.contentView.frame = sourceRect ?? CGRect.zero
+        //先隐藏
+        contentView.isHidden = true
+        photoCollectionView?.isHidden = true
+//        contentView.removeFromSuperview()
+//        photoCollectionView?.removeFromSuperview()
+//
+        UIView.animate(withDuration: 0.3, delay: 0, options: .curveEaseIn, animations: {
+            animationImage.frame = sourceRect ?? CGRect.zero
             self.view.backgroundColor = UIColor.clear
         }) { (finished) in
+            animationImage.removeFromSuperview()
             self.dismissAnimated(false)
             self.panEndedWillDisappear(false)
         }
+        
+//        UIView.animate(withDuration: 0.2, animations: {
+//            photoView.scrollView.zoomScale = 1
+////            photoView.imageView.frame = sourceRect ?? CGRect.zero
+//            self.contentView.frame = sourceRect ?? CGRect.zero
+//            self.view.backgroundColor = UIColor.clear
+//        }) { (finished) in
+//            self.dismissAnimated(false)
+//            self.panEndedWillDisappear(false)
+//        }
     }
     
     func panEndedWillDisappear(_ disappear: Bool) {
@@ -571,26 +590,6 @@ private extension DDPhotoBrowerController {
         alertVC.addAction(cancelAction)
         alertVC.addAction(actionCommit)
         present(alertVC, animated: true, completion: nil)
-        
-//        guard let window = UIApplication.shared.keyWindow else {
-//            return
-//        }
-//        let info = AlertInfo(title: "温馨提示",
-//                             subTitle: nil,
-//                             needInput: nil,
-//                             cancel: "取消",
-//                             sure: "去设置",
-//                             content: text,
-//                             targetView: window)
-//        Alert.shared.show(info: info) { (tag) in
-//            if tag == 0 {
-//                return
-//            }
-//            //去设置
-//            if let url = URL(string: UIApplicationOpenSettingsURLString) {
-//                UIApplication.shared.openURL(url)
-//            }
-//        }
     }
 }
 
@@ -650,12 +649,10 @@ extension DDPhotoBrowerController {
     }
     
     @objc func handleSingleTap(_ tap: UITapGestureRecognizer) {
+        isDismissing = true
         //显示状态栏
         isStatusBarShow = true
-        // 防止返回时跳动
-        DispatchQueue.main.asyncAfter(deadline: .now() + 0.1) {
-            self.recoverAnimation()
-        }
+        self.showDismissAnimation()
     }
 }
 

@@ -308,45 +308,13 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "DDPhotoBrowserDemo/PhotoBrowser/Classes/DDPhotoBrowerController.swift"
-            timestampString = "569993469.5973099"
+            timestampString = "575431660.82514"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "644"
-            endingLineNumber = "644"
-            landmarkName = "handleSingleTap(_:)"
+            startingLineNumber = "643"
+            endingLineNumber = "643"
+            landmarkName = "handleLongPress(_:)"
             landmarkType = "7">
-            <Locations>
-               <Location
-                  shouldBeEnabled = "Yes"
-                  ignoreCount = "0"
-                  continueAfterRunningActions = "No"
-                  symbolName = "DDPhotoBrowserDemo.DDPhotoBrowerController.handleSingleTap(__C.UITapGestureRecognizer) -&gt; ()"
-                  moduleName = "DDPhotoBrowserDemo"
-                  usesParentBreakpointCondition = "Yes"
-                  urlString = "file:///Users/user/DDPhotoBrowser/Demo/DDPhotoBrowserDemo/PhotoBrowser/Classes/DDPhotoBrowerController.swift"
-                  timestampString = "569993469.8892829"
-                  startingColumnNumber = "9223372036854775807"
-                  endingColumnNumber = "9223372036854775807"
-                  startingLineNumber = "645"
-                  endingLineNumber = "645"
-                  offsetFromSymbolStart = "71">
-               </Location>
-               <Location
-                  shouldBeEnabled = "Yes"
-                  ignoreCount = "0"
-                  continueAfterRunningActions = "No"
-                  symbolName = "closure #1 () -&gt; () in DDPhotoBrowserDemo.DDPhotoBrowerController.handleSingleTap(__C.UITapGestureRecognizer) -&gt; ()"
-                  moduleName = "DDPhotoBrowserDemo"
-                  usesParentBreakpointCondition = "Yes"
-                  urlString = "file:///Users/user/DDPhotoBrowser/Demo/DDPhotoBrowserDemo/PhotoBrowser/Classes/DDPhotoBrowerController.swift"
-                  timestampString = "569993469.892879"
-                  startingColumnNumber = "9223372036854775807"
-                  endingColumnNumber = "9223372036854775807"
-                  startingLineNumber = "646"
-                  endingLineNumber = "646"
-                  offsetFromSymbolStart = "19">
-               </Location>
-            </Locations>
          </BreakpointContent>
       </BreakpointProxy>
       <BreakpointProxy
@@ -356,11 +324,11 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "DDPhotoBrowserDemo/PhotoBrowser/Classes/DDPhotoView.swift"
-            timestampString = "569993469.597707"
+            timestampString = "575431660.825743"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "104"
-            endingLineNumber = "104"
+            startingLineNumber = "103"
+            endingLineNumber = "103"
             landmarkName = "setupPhoto(_:)"
             landmarkType = "7">
          </BreakpointContent>
@@ -468,13 +436,269 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "DDPhotoBrowserDemo/PhotoBrowser/Classes/DDPhotoBrowerController.swift"
-            timestampString = "569993469.598213"
+            timestampString = "575431660.826035"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
             startingLineNumber = "97"
             endingLineNumber = "97"
             landmarkName = "closeNotification()"
             landmarkType = "7">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            shouldBeEnabled = "Yes"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "DDPhotoBrowserDemo/PhotoBrowser/Classes/DDPhotoBrowerController.swift"
+            timestampString = "575431660.826466"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "389"
+            endingLineNumber = "389"
+            landmarkName = "showDismissAnimation()"
+            landmarkType = "7">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            shouldBeEnabled = "Yes"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "DDPhotoBrowserDemo/PhotoBrowser/Classes/DDScrollView.swift"
+            timestampString = "575374478.28583"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "16"
+            endingLineNumber = "16"
+            landmarkName = "gestureRecognizerShouldBegin(_:)"
+            landmarkType = "7">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            shouldBeEnabled = "Yes"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "DDPhotoBrowserDemo/PhotoBrowser/Classes/DDScrollView.swift"
+            timestampString = "575374480.32087"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "33"
+            endingLineNumber = "33"
+            landmarkName = "isScrollViewOnTopOrBottom()"
+            landmarkType = "7">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            shouldBeEnabled = "Yes"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "DDPhotoBrowserDemo/PhotoBrowser/Classes/DDScrollView.swift"
+            timestampString = "575374481.265649"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "27"
+            endingLineNumber = "27"
+            landmarkName = "isScrollViewOnTopOrBottom()"
+            landmarkType = "7">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            shouldBeEnabled = "Yes"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "DDPhotoBrowserDemo/PhotoBrowser/Classes/DDPhotoView.swift"
+            timestampString = "575431660.826906"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "216"
+            endingLineNumber = "216"
+            landmarkName = "scrollViewDidEndZooming(_:with:atScale:)"
+            landmarkType = "7">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            shouldBeEnabled = "Yes"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "DDPhotoBrowserDemo/PhotoBrowser/Classes/DDPhotoView.swift"
+            timestampString = "575431660.826977"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "280"
+            endingLineNumber = "280"
+            landmarkName = "cleanImage()"
+            landmarkType = "7">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            shouldBeEnabled = "Yes"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "DDPhotoBrowserDemo/PhotoBrowser/Classes/DDPhotoBrowerController.swift"
+            timestampString = "575431660.8270431"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "654"
+            endingLineNumber = "654"
+            landmarkName = "handleSingleTap(_:)"
+            landmarkType = "7">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            shouldBeEnabled = "Yes"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "DDPhotoBrowserDemo/PhotoBrowser/Classes/DDPhotoBrowerController.swift"
+            timestampString = "575431660.827345"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "607"
+            endingLineNumber = "607"
+            landmarkName = "handleDoubleTap(_:)"
+            landmarkType = "7">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            shouldBeEnabled = "Yes"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "DDPhotoBrowserDemo/PhotoBrowser/Classes/DDPhotoBrowerController.swift"
+            timestampString = "575431660.827634"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "615"
+            endingLineNumber = "615"
+            landmarkName = "handleDoubleTap(_:)"
+            landmarkType = "7">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            shouldBeEnabled = "Yes"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "DDPhotoBrowserDemo/PhotoBrowser/Classes/DDPhotoBrowerController.swift"
+            timestampString = "575431660.827945"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "357"
+            endingLineNumber = "357"
+            landmarkName = "showDismissAnimation()"
+            landmarkType = "7">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            shouldBeEnabled = "Yes"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "DDPhotoBrowserDemo/PhotoBrowser/Classes/DDPhotoBrowerController.swift"
+            timestampString = "575431660.828213"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "22"
+            endingLineNumber = "22"
+            landmarkName = "isStatusBarShow"
+            landmarkType = "24">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            shouldBeEnabled = "Yes"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "DDPhotoBrowserDemo/PhotoBrowser/Classes/DDPhotoBrowerController.swift"
+            timestampString = "575431660.8285151"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "675"
+            endingLineNumber = "675"
+            landmarkName = "prefersStatusBarHidden"
+            landmarkType = "24">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            shouldBeEnabled = "Yes"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "DDPhotoBrowserDemo/PhotoBrowser/Classes/DDPhotoBrowerController.swift"
+            timestampString = "575431660.828915"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "679"
+            endingLineNumber = "679"
+            landmarkName = "preferredStatusBarStyle"
+            landmarkType = "24">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            shouldBeEnabled = "Yes"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "DDPhotoBrowserDemo/PhotoBrowser/Classes/DDPhotoBrowerController.swift"
+            timestampString = "575431660.829126"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "662"
+            endingLineNumber = "662"
+            landmarkName = "shouldAutorotate"
+            landmarkType = "24">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            shouldBeEnabled = "Yes"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "DDPhotoBrowserDemo/PhotoBrowser/Classes/DDPhotoBrowerController.swift"
+            timestampString = "575431660.829641"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "666"
+            endingLineNumber = "666"
+            landmarkName = "supportedInterfaceOrientations"
+            landmarkType = "24">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            shouldBeEnabled = "Yes"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "DDPhotoBrowserDemo/PhotoBrowser/Classes/DDPhotoBrowerController.swift"
+            timestampString = "575431660.830034"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "670"
+            endingLineNumber = "670"
+            landmarkName = "preferredInterfaceOrientationForPresentation"
+            landmarkType = "24">
          </BreakpointContent>
       </BreakpointProxy>
    </Breakpoints>

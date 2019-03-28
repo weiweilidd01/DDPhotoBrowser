@@ -13,7 +13,6 @@ import Kingfisher
 let kMaxZoomScale: CGFloat = 2.0
 
 class DDPhotoView: UIView {
-
     public lazy var scrollView: DDScrollView = {
         let scrollView = DDScrollView()
         let sWidth = UIScreen.main.bounds.width

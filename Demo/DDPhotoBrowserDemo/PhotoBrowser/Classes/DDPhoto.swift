@@ -36,11 +36,11 @@ public class DDPhoto: NSObject {
     public override init() {
         
     }
-
+    
     //MARK -- 下述参数无需配置
     /** gif */
-     var isGif: Bool = false
-
+    var isGif: Bool = false
+    
     /** 图片是否加载完成 */
     var isFinished: Bool = false
     /** 图片是否加载失败 */
